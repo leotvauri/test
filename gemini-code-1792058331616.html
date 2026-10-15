@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goethe B1 - Lesen Modul Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
+    <header class="bg-indigo-700 text-white shadow-md">
+        <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center">
+            <h1 class="text-2xl font-bold">📖 Goethe B1 Lesen Trainer</h1>
+            <p class="text-indigo-200 text-sm mt-1 sm:mt-0">Interaktive Prüfungsvorbereitung</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8">
+        <!-- Navigation Tabs for Parts -->
+        <div class="flex flex-wrap gap-2 mb-6 border-b pb-4">
+            <button onclick="switchTab(1)" id="tab-btn-1" class="px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium shadow-sm transition">Teil 1 (Blog)</button>
+            <button onclick="switchTab(2)" id="tab-btn-2" class="px-4 py-2 bg-white text-slate-700 border rounded-lg font-medium shadow-sm hover:bg-slate-100 transition">Teil 2 (Artikel)</button>
+            <button onclick="switchTab(3)" id="tab-btn-3" class="px-4 py-2 bg-white text-slate-700 border rounded-lg font-medium shadow-sm hover:bg-slate-100 transition">Teil 3 (Anzeigen)</button>
+            <button onclick="switchTab(4)" id="tab-btn-4" class="px-4 py-2 bg-white text-slate-700 border rounded-lg font-medium shadow-sm hover:bg-slate-100 transition">Teil 4 (Diskussion)</button>
+            <button onclick="switchTab(5)" id="tab-btn-5" class="px-4 py-2 bg-white text-slate-700 border rounded-lg font-medium shadow-sm hover:bg-slate-100 transition">Teil 5 (Regeln)</button>
+        </div>
+
+        <!-- Teil 1 Content -->
+        <section id="tab-1" class="tab-content bg-white p-6 rounded-xl shadow-sm border">
+            <h2 class="text-xl font-bold mb-2 text-indigo-900">Teil 1: Blogbeitrag und Aussagen</h2>
+            <p class="text-sm text-slate-600 mb-4">Lesen Sie den Text und entscheiden Sie, ob die Aussagen richtig (R) oder falsch (F) sind.</p>
+            
+            <div class="bg-slate-50 p-4 rounded-lg mb-6 border text-sm leading-relaxed">
+                <p class="font-semibold mb-2">Thema: Technik im Kinderzimmer</p>
+                <p>„...შემოდგომაზე გადავწყვიტეთ, ჩვენი ქალიშვილისთვის, ლინასთვის (რომელიც უკვე 2 წლისაა) საბავშვო ოთახში სხვადასხვა ტექნიკური სიახლე გვეცადა. პირველ ღამესვე სენსორულმა მატრასმა ხმამაღალი განგაში ატეხა. მივხვდით, რომ მატრასის ქვეშ ქსოვილი გადაადგილებულიყო... ყველაზე მეტად ავტომატურად მერხევი საწოლი გვაინტერესებდა, მაგრამ რეალურად იქ უფრო მოუსვენრად ეძინა. ტესტის კვირის ბოლოს ეს მოწყობილობები ისევ მაღაზიას დავუბრუნეთ...“</p>
+            </div>
+
+            <div class="space-y-4" id="quiz-part-1">
+                <div class="p-4 border rounded-lg">
+                    <p class="font-medium text-sm mb-2">1. Jana und David testeten technische Geräte im Zimmer ihrer zweijährigen Tochter.</p>
+                    <label class="mr-4"><input type="radio" name="q1" value="R"> Richtig</label>
+                    <label><input type="radio" name="q1" value="F"> Falsch</label>
+                </div>
+                <div class="p-4 border rounded-lg">
+                    <p class="font-medium text-sm mb-2">2. Der Alarm des Matratzensensors funktionierte sofort beim ersten Mal wegen eines echten Atemproblems.</p>
+                    <label class="mr-4"><input type="radio" name="q2" value="R"> Richtig</label>
+                    <label><input type="radio" name="q2" value="F"> Falsch</label>
+                </div>
+                <div class="p-4 border rounded-lg">
+                    <p class="font-medium text-sm mb-2">3. Am Ende gaben sie die Geräte zurück, weil das schaukelnde Bett nicht gut funktionierte.</p>
+                    <label class="mr-4"><input type="radio" name="q3" value="R"> Richtig</label>
+                    <label><input type="radio" name="q3" value="F"> Falsch</label>
+                </div>
+            </div>
+
+            <button onclick="checkAnswers(1)" class="mt-6 bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">Überprüfen</button>
+            <div id="result-1" class="mt-4 font-semibold text-sm"></div>
+        </section>
+
+        <!-- Placeholder for other parts -->
+        <section id="tab-2" class="tab-content hidden bg-white p-6 rounded-xl shadow-sm border">
+            <h2 class="text-xl font-bold mb-2 text-indigo-900">Teil 2: Magazinartikel</h2>
+            <p class="text-sm text-slate-600">სტატია და 3-არჩევანიანი კითხვები (მუშავდება აპლიკაციის სრულ ვერსიაში)...</p>
+        </section>
+        <section id="tab-3" class="tab-content hidden bg-white p-6 rounded-xl shadow-sm border">
+            <h2 class="text-xl font-bold mb-2 text-indigo-900">Teil 3: Anzeigen</h2>
+            <p class="text-sm text-slate-600">სიტუაციები და რეკლამების ძებნა...</p>
+        </section>
+        <section id="tab-4" class="tab-content hidden bg-white p-6 rounded-xl shadow-sm border">
+            <h2 class="text-xl font-bold mb-2 text-indigo-900">Teil 4: Diskussion</h2>
+            <p class="text-sm text-slate-600">Wer sagt was? დისკუსიის ანალიზი...</p>
+        </section>
+        <section id="tab-5" class="tab-content hidden bg-white p-6 rounded-xl shadow-sm border">
+            <h2 class="text-xl font-bold mb-2 text-indigo-900">Teil 5: Offizielle Regeln</h2>
+            <p class="text-sm text-slate-600">ოფიციალური განცხადებები და წესები...</p>
+        </section>
+    </main>
+
+    <script>
+        function switchTab(part) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`tab-${part}`).classList.remove('hidden');
+
+            for(let i=1; i<=5; i++) {
+                const btn = document.getElementById(`tab-btn-${i}`);
+                if(i === part) {
+                    btn.className = "px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium shadow-sm transition";
+                } else {
+                    btn.className = "px-4 py-2 bg-white text-slate-700 border rounded-lg font-medium shadow-sm hover:bg-slate-100 transition";
+                }
+            }
+        }
+
+        function checkAnswers(part) {
+            if(part === 1) {
+                const q1 = document.querySelector('input[name="q1"]:checked');
+                const q2 = document.querySelector('input[name="q2"]:checked');
+                const q3 = document.querySelector('input[name="q3"]:checked');
+                const res = document.getElementById('result-1');
+
+                if(!q1 || !q2 || !q3) {
+                    res.innerHTML = "<span class='text-amber-600'>გთხოვთ, უპასუხოთ ყველა კითხვას!</span>";
+                    return;
+                }
+
+                let score = 0;
+                if(q1.value === 'R') score++;
+                if(q2.value === 'F') score++;
+                if(q3.value === 'R') score++;
+
+                res.innerHTML = `<span class='text-green-600'>შედეგი: ${score} / 3 სწორი პასუხი!</span>`;
+            }
+        }
+    </script>
+</body>
+</html>
